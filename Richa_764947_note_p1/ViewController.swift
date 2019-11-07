@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+@available(iOS 13.0, *)
+class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
   
     
 
@@ -16,17 +17,39 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
  
     @IBOutlet weak var edit_btn: UINavigationItem!
 
+    @IBOutlet weak var editBtn: UIBarButtonItem!
     var notes : [String] = []
     @IBOutlet weak var add_folder: UIBarButtonItem!
     var alert : UIAlertController?
-    
+    var canEdit : Bool = false
     @IBOutlet weak var tabl_view: UITableView!
     
   
     override func viewDidLoad() {
         super.viewDidLoad()
         notes = []
-       edit_btn.rightBarButtonItem = editButtonItem
+       
+       
+        
+    }
+    
+
+    @IBAction func on_edit(_ sender: UIBarButtonItem) {
+        
+        if editBtn.title == "Edit"
+        {
+            editBtn.title = "Done"
+           tabl_view.isEditing = true
+           
+          
+            
+        }else {
+        editBtn.title = "Edit"
+            tabl_view.isEditing = false
+            
+        }
+        
+        
         
     }
     
@@ -37,7 +60,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         alert?.addTextField(configurationHandler: { (utxt) in
             utxt.placeholder = "Name"
         })
-        alert?.addAction(UIAlertAction(title: "kindly add", style: .default, handler: { (act) in
+        alert?.addAction(UIAlertAction(title: "Cancle?", style: .destructive, handler: nil))
+        alert?.addAction(UIAlertAction(title: "Add New Folder", style: .default, handler: { (act) in
             let name = self.alert?.textFields?.first?.text
 
             self.notes.append(name!)
@@ -63,10 +87,46 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         cell.textLabel?.text = self.notes[indexPath.row]
         print("insidde tableview cell")
         print(notes[indexPath.row])
-        
+      
           return cell
       }
    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        
+        var temp = destinationIndexPath.row
+        notes[destinationIndexPath.row] = notes[sourceIndexPath.row]
+        notes[sourceIndexPath.row] = notes[temp]
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+ 
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "delete") { (act, v, _) in
+            self.notes.remove(at: indexPath.row)
+            tableView.reloadData()
+            
+        }
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
     
     
 }
