@@ -50,11 +50,11 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     @IBAction func add_new_folder(_ sender: Any) {
      
         
-        alert = UIAlertController(title: "Enter Folder Name", message: "choose one", preferredStyle: .alert)
+        alert = UIAlertController(title: "New Folder", message: "Enter name for this folder", preferredStyle: .alert)
         alert?.addTextField(configurationHandler: { (utxt) in
             utxt.placeholder = "Name"
         })
-        
+        alert?.view.tintColor = .black
         alert?.addAction(UIAlertAction(title: "Cancle?", style: .destructive, handler: nil))
         alert?.addAction(UIAlertAction(title: "Add New Folder", style: .default, handler: { (act) in
             let name = self.alert?.textFields?.first?.text
@@ -99,7 +99,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
         
-        var temp = destinationIndexPath.row
+        let  temp = destinationIndexPath.row
         notes[destinationIndexPath.row] = notes[sourceIndexPath.row]
         notes[sourceIndexPath.row] = notes[temp]
     }
