@@ -13,9 +13,11 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
   
     
 
+    @IBOutlet weak var nav_name: UINavigationItem!
     
- 
-    @IBOutlet weak var edit_btn: UINavigationItem!
+    @IBOutlet weak var folder: UILabel!
+    @IBOutlet weak var nav_bar: UINavigationBar!
+    //@IBOutlet weak var edit_btn: UINavigationItem!
 
     @IBOutlet weak var editBtn: UIBarButtonItem!
     var notes : [String] = []
@@ -34,6 +36,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
 
+    @IBOutlet weak var flg: UILabel!
     @IBAction func on_edit(_ sender: UIBarButtonItem) {
         
         if editBtn.title == "Edit"
@@ -82,11 +85,15 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
       
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        
+        
         let cell = UITableViewCell(style: .default, reuseIdentifier: "folder")
-        cell.imageView?.image = #imageLiteral(resourceName: "folder-icon.png")
-        cell.textLabel?.text = self.notes[indexPath.row]
-        print("insidde tableview cell")
-        print(notes[indexPath.row])
+        
+            cell.imageView?.image = #imageLiteral(resourceName: "folder-icon.png")
+            cell.textLabel?.text = self.notes[indexPath.row]
+        
+       
       
           return cell
       }
@@ -112,6 +119,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
  
+   
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
@@ -127,6 +135,22 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         return UISwipeActionsConfiguration(actions: [delete])
     }
     
+        
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+       // nav_name.barTintColor = UIColor(red: 0.01560127642, green: 0.01560719963, blue: 0.01560719963, alpha: 0.5)
+        nav_name.title = "Folder"
+        flg.isHidden = true
+       
+     
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+      //  nav_bar.barTintColor =  #colorLiteral(red: 1, green: 0, blue: 0.1814254509, alpha: 0.8470588235)
+        nav_name.title = ""
+          flg.isHidden = false
+     
+    }
+
     
     
 }
