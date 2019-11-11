@@ -26,6 +26,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         notes = []
         //MARK: TO ENABLE SCROLLING ONE
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = UIColor.lightGray
+        self.tabl_view.backgroundColor = UIColor.lightGray
+        
+        
     }
     
     
@@ -49,18 +53,35 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     //MARK : TO ADD FOLDERS DYNAMICALLY
     @IBAction func add_new_folder(_ sender: Any) {
      
-        
+        var flag : Bool = false
         alert = UIAlertController(title: "New Folder", message: "Enter name for this folder", preferredStyle: .alert)
         alert?.addTextField(configurationHandler: { (utxt) in
             utxt.placeholder = "Name"
         })
-        alert?.view.tintColor = .black
-        alert?.addAction(UIAlertAction(title: "Cancle?", style: .destructive, handler: nil))
-        alert?.addAction(UIAlertAction(title: "Add New Folder", style: .default, handler: { (act) in
-            let name = self.alert?.textFields?.first?.text
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive) { (action) in
+        }
 
+        alert?.view.tintColor = .black
+        alert?.addAction(cancel)
+       cancel.setValue(UIColor.brown, forKey: "titleTextColor")
+       alert?.addAction(UIAlertAction(title: "Add New Folder", style: .default, handler: { (act) in
+            let name = self.alert?.textFields?.first?.text
+            for i in self.notes{
+                
+                if name == i
+                {
+                    flag = true
+                }
+            }
+          
+            if !flag{
             self.notes.append(name!)
-         
+            }
+            else{
+                var alert2 = UIAlertController(title: "Folder Alredy Exist", message: "Enter a new  name for this folder", preferredStyle: .alert)
+                alert2.addAction(UIAlertAction(title: "Cancle?", style: .destructive, handler: nil))
+                self.present(alert2, animated: true, completion: nil)
+            }
             self.tabl_view.reloadData()
          
             
@@ -79,7 +100,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell : UITableViewCell
-        cell = UITableViewCell(style: .default, reuseIdentifier: "folder")
+       
+        cell = UITableViewCell(style: .value1, reuseIdentifier: "folder")
+        cell.backgroundColor = UIColor.lightGray
         cell.imageView?.image = #imageLiteral(resourceName: "folder-icon.png")
         cell.textLabel?.text = self.notes[indexPath.row]
         return cell
