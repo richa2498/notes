@@ -11,7 +11,7 @@ import UIKit
 @available(iOS 13.0, *)
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
   
-  
+    var delegate = note_view_controller()
     @IBOutlet weak var nav_name: UINavigationItem!
     @IBOutlet weak var editBtn: UIBarButtonItem!
     var notes : [String] = []
@@ -19,7 +19,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     var alert : UIAlertController?
     var canEdit : Bool = false
     @IBOutlet weak var tabl_view: UITableView!
-    
+    var num : Int = 1
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,11 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             
         }
      
+    }
+    func my() -> Int {
+        
+        num = (delegate.num_of_rows()) ?? 0
+        return num
     }
     //MARK : TO ADD FOLDERS DYNAMICALLY
     @IBAction func add_new_folder(_ sender: Any) {
@@ -101,10 +106,12 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         var cell : UITableViewCell
        
-        cell = UITableViewCell(style: .value1, reuseIdentifier: "folder")
+        //cell = UITableViewCell(style: .value1, reuseIdentifier: "folder")
+        cell = tabl_view!.dequeueReusableCell(withIdentifier: "folder")!
         cell.backgroundColor = UIColor.lightGray
         cell.imageView?.image = #imageLiteral(resourceName: "folder-icon.png")
         cell.textLabel?.text = self.notes[indexPath.row]
+        cell.detailTextLabel?.text = "0"
         return cell
       
     }

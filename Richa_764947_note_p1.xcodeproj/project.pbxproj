@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B0EC1632379EA2600157CEF /* note_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EC1622379EA2600157CEF /* note_view_controller.swift */; };
+		9B0EC1652379F6C500157CEF /* notes_struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EC1642379F6C500157CEF /* notes_struct.swift */; };
+		9B0EC1692379FED000157CEF /* add_notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0EC1682379FED000157CEF /* add_notes.swift */; };
 		9B38AD4B2374A9CD00F4FBB1 /* folder-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B38AD4A2374A9CD00F4FBB1 /* folder-icon.png */; };
 		9B3C47B2237482480007E6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C47B1237482480007E6D0 /* AppDelegate.swift */; };
 		9B3C47B4237482480007E6D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C47B3237482480007E6D0 /* ViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B0EC1622379EA2600157CEF /* note_view_controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = note_view_controller.swift; sourceTree = "<group>"; };
+		9B0EC1642379F6C500157CEF /* notes_struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notes_struct.swift; sourceTree = "<group>"; };
+		9B0EC1682379FED000157CEF /* add_notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_notes.swift; sourceTree = "<group>"; };
 		9B38AD4A2374A9CD00F4FBB1 /* folder-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder-icon.png"; sourceTree = "<group>"; };
 		9B3C47AE237482480007E6D0 /* Richa_764947_note_p1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Richa_764947_note_p1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3C47B1237482480007E6D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 				9B38AD4A2374A9CD00F4FBB1 /* folder-icon.png */,
 				9B3C47BA237482490007E6D0 /* LaunchScreen.storyboard */,
 				9B3C47BD237482490007E6D0 /* Info.plist */,
+				9B0EC1622379EA2600157CEF /* note_view_controller.swift */,
+				9B0EC1642379F6C500157CEF /* notes_struct.swift */,
+				9B0EC1682379FED000157CEF /* add_notes.swift */,
 			);
 			path = Richa_764947_note_p1;
 			sourceTree = "<group>";
@@ -260,8 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B0EC1632379EA2600157CEF /* note_view_controller.swift in Sources */,
 				9B3C47B4237482480007E6D0 /* ViewController.swift in Sources */,
+				9B0EC1652379F6C500157CEF /* notes_struct.swift in Sources */,
 				9B3C47B2237482480007E6D0 /* AppDelegate.swift in Sources */,
+				9B0EC1692379FED000157CEF /* add_notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
