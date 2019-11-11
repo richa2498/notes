@@ -117,7 +117,7 @@
         <!--notes-->
         <scene sceneID="aQZ-M0-iCx">
             <objects>
-                <viewController id="yd1-OR-dwA" sceneMemberID="viewController">
+                <viewController id="yd1-OR-dwA" customClass="note_view_controller" customModule="Richa_764947_note_p1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5xB-RL-4Wq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,7 +134,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="317" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-IO-mVZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMR-IO-mVZ">
                                                     <rect key="frame" x="15" y="12" width="294" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -168,15 +168,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="table_view" destination="e4K-E8-tRQ" id="kOV-Xn-bSR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3d-sr-EPO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="463" y="-287"/>
         </scene>
-        <!--View Controller-->
+        <!--Add notes-->
         <scene sceneID="isB-tW-cwF">
             <objects>
-                <viewController id="wsf-5I-Uzg" sceneMemberID="viewController">
+                <viewController id="wsf-5I-Uzg" customClass="add_notes" customModule="Richa_764947_note_p1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZRV-l8-c91">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,6 +197,9 @@
                         <viewLayoutGuide key="safeArea" id="cGl-H9-oHq"/>
                     </view>
                     <navigationItem key="navigationItem" id="7va-Bl-8PU"/>
+                    <connections>
+                        <outlet property="add_text_area" destination="b8E-aW-LwF" id="zfO-Ud-IbQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AY-JO-zVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

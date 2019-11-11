@@ -11,15 +11,26 @@ import UIKit
 class add_notes: UIViewController {
     
     
-
+    @IBOutlet weak var add_text_area: UITextView!
+    var delegate1 : note_view_controller?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+   
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        delegate1?.add_to_list(item: add_text_area.text)
+        
+    }
 
+    
     /*
     // MARK: - Navigation
 
