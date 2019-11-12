@@ -30,6 +30,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         self.view.backgroundColor = UIColor.lightGray
         self.tabl_view.backgroundColor = UIColor.lightGray
         
+       
+        
         
     }
     

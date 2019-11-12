@@ -15,11 +15,13 @@ class add_notes: UIViewController {
     
     @IBOutlet weak var add_text_area: UITextView!
     var delegate1 : note_view_controller?
-    
+    var item_name = ""
+    var isExists: Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        add_text_area.text = item_name
 
         // Do any additional setup after loading the view.
     }
@@ -28,10 +30,13 @@ class add_notes: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         
-        delegate1?.add_to_list(item: add_text_area.text)
+       
+        delegate1?.add_to_list(item: add_text_area.text,isExits: isExists)
         
     }
-
+    
+    
+    
     
     /*
     // MARK: - Navigation

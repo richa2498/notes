@@ -18,6 +18,7 @@
 		9B3C47BC237482490007E6D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B3C47BA237482490007E6D0 /* LaunchScreen.storyboard */; };
 		9B3C47C7237482490007E6D0 /* Richa_764947_note_p1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C47C6237482490007E6D0 /* Richa_764947_note_p1Tests.swift */; };
 		9B3C47D2237482490007E6D0 /* Richa_764947_note_p1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C47D1237482490007E6D0 /* Richa_764947_note_p1UITests.swift */; };
+		9BD18A85237B6049001E4580 /* moveFolders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD18A84237B6049001E4580 /* moveFolders.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9B3C47CD237482490007E6D0 /* Richa_764947_note_p1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Richa_764947_note_p1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3C47D1237482490007E6D0 /* Richa_764947_note_p1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Richa_764947_note_p1UITests.swift; sourceTree = "<group>"; };
 		9B3C47D3237482490007E6D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BD18A84237B6049001E4580 /* moveFolders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moveFolders.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				9B0EC1622379EA2600157CEF /* note_view_controller.swift */,
 				9B0EC1642379F6C500157CEF /* notes_struct.swift */,
 				9B0EC1682379FED000157CEF /* add_notes.swift */,
+				9BD18A84237B6049001E4580 /* moveFolders.swift */,
 			);
 			path = Richa_764947_note_p1;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B0EC1632379EA2600157CEF /* note_view_controller.swift in Sources */,
+				9BD18A85237B6049001E4580 /* moveFolders.swift in Sources */,
 				9B3C47B4237482480007E6D0 /* ViewController.swift in Sources */,
 				9B0EC1652379F6C500157CEF /* notes_struct.swift in Sources */,
 				9B3C47B2237482480007E6D0 /* AppDelegate.swift in Sources */,
