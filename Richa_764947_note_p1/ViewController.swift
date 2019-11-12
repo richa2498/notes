@@ -11,7 +11,7 @@ import UIKit
 @available(iOS 13.0, *)
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
   
-    var delegate = note_view_controller()
+    var currIndex = -1
     @IBOutlet weak var nav_name: UINavigationItem!
     @IBOutlet weak var editBtn: UIBarButtonItem!
     var notes : [String] = []
@@ -20,7 +20,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     var canEdit : Bool = false
     @IBOutlet weak var tabl_view: UITableView!
     var num : Int = 1
-  
+    var folder : String = ""
+   var dele : note_view_controller?
     override func viewDidLoad() {
         super.viewDidLoad()
         notes = []
@@ -50,11 +51,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
      
     }
-    func my() -> Int {
-        
-        num = (delegate.num_of_rows()) ?? 0
-        return num
-    }
+    
     //MARK : TO ADD FOLDERS DYNAMICALLY
     @IBAction func add_new_folder(_ sender: Any) {
      
@@ -71,22 +68,27 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
        cancel.setValue(UIColor.brown, forKey: "titleTextColor")
        alert?.addAction(UIAlertAction(title: "Add New Folder", style: .default, handler: { (act) in
             let name = self.alert?.textFields?.first?.text
-            for i in self.notes{
+            for i in Folder_notes.add_notes
+            {
                 
-                if name == i
+                if name == i.folder_name
                 {
                     flag = true
                 }
             }
           
             if !flag{
-            self.notes.append(name!)
+            //self.notes.append(name!)
+            let f = Folder_notes(folder_name: name ?? "", notes: [])
+            Folder_notes.add_notes.append(f)
+            
             }
             else{
-                var alert2 = UIAlertController(title: "Folder Alredy Exist", message: "Enter a new  name for this folder", preferredStyle: .alert)
+                let alert2 = UIAlertController(title: "Folder Alredy Exist", message: "Enter a new  name for this folder", preferredStyle: .alert)
                 alert2.addAction(UIAlertAction(title: "Cancle?", style: .destructive, handler: nil))
                 self.present(alert2, animated: true, completion: nil)
             }
+        
             self.tabl_view.reloadData()
          
             
@@ -97,23 +99,35 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     //MARK : RETURNS THE ROWS OF TABLES
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        //return notes.count
+        return Folder_notes.add_notes.count
       }
     
     
       //MARK : DEFINE CELL
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell : UITableViewCell
-       
+        
+        //var cell : UITableViewCell
+        
         //cell = UITableViewCell(style: .value1, reuseIdentifier: "folder")
-        cell = tabl_view!.dequeueReusableCell(withIdentifier: "folder")!
+        if let cell = tabl_view!.dequeueReusableCell(withIdentifier: "folder"){
         cell.backgroundColor = UIColor.lightGray
         cell.imageView?.image = #imageLiteral(resourceName: "folder-icon.png")
-        cell.textLabel?.text = self.notes[indexPath.row]
-        cell.detailTextLabel?.text = "0"
-        return cell
-      
+        cell.textLabel?.text = Folder_notes.add_notes[indexPath.row].folder_name//self.notes[indexPath.row]
+        //folder = self.notes[indexPath.row]
+       cell.detailTextLabel?.text = "\(Folder_notes.add_notes[indexPath.row].notes.count)"
+            return cell
+            
+        }
+        
+      return UITableViewCell()
+        
+    }
+    
+    
+    func folder_name() -> String {
+        return folder
     }
     
     //MARK : FOR REAARANGING THE FOLDERS
@@ -130,8 +144,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         
         let  temp = destinationIndexPath.row
-        notes[destinationIndexPath.row] = notes[sourceIndexPath.row]
-        notes[sourceIndexPath.row] = notes[temp]
+        Folder_notes.add_notes[destinationIndexPath.row].folder_name = Folder_notes.add_notes[sourceIndexPath.row].folder_name
+        
+        
+        Folder_notes.add_notes[sourceIndexPath.row].folder_name = Folder_notes.add_notes[temp].folder_name
     }
     
     //MARK : TO DISABLE DELETE  FUNCTIONALITY WHILE EDITING
@@ -146,14 +162,35 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     //MARK : DELETE DATA
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "delete") { (act, v, _) in
-            self.notes.remove(at: indexPath.row)
-            tableView.reloadData()
-            
-        }
+            Folder_notes.add_notes.remove(at: indexPath.row)
+           self.reloadmytable()
+                    }
         return UISwipeActionsConfiguration(actions: [delete])
     }
     
+    func reloadmytable(){
         
+         tabl_view.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? note_view_controller{
+            
+            dest.delegateMainView = self
+            if let tcell = sender as? UITableViewCell{
+               
+                if let indexpath = tabl_view.indexPath(for: tcell){
+                
+                    currIndex = indexpath.row}
+                
+            }
+            
+            
+        }
+        
+    }
+ 
+    
     
     
 }
