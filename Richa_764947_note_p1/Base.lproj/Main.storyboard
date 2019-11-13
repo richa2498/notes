@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lFg-xf-b4J">
-                                <rect key="frame" x="0.0" y="44" width="374" height="665"/>
+                                <rect key="frame" x="0.0" y="44" width="374" height="574"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -124,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="-333.60000000000002" y="-281.10944527736132"/>
         </scene>
-        <!--notes-->
+        <!--Notes-->
         <scene sceneID="aQZ-M0-iCx">
             <objects>
                 <viewController id="yd1-OR-dwA" customClass="note_view_controller" customModule="Richa_764947_note_p1" customModuleProvider="target" sceneMemberID="viewController">
@@ -139,15 +139,15 @@
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="note_cell" textLabel="e0l-fT-f5C" style="IBUITableViewCellStyleDefault" id="mwB-TT-Xsi">
+                                    <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="note_cell" textLabel="e0l-fT-f5C" style="IBUITableViewCellStyleDefault" id="mwB-TT-Xsi">
                                         <rect key="frame" x="0.0" y="28" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mwB-TT-Xsi" id="7JT-q9-loY">
-                                            <rect key="frame" x="0.0" y="0.0" width="357" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e0l-fT-f5C">
-                                                    <rect key="frame" x="15" y="0.0" width="334" height="44"/>
+                                                    <rect key="frame" x="15" y="0.0" width="321" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -195,7 +195,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="notes" id="MgW-Za-B2y">
+                    <navigationItem key="navigationItem" title="Notes" id="MgW-Za-B2y">
                         <barButtonItem key="rightBarButtonItem" title="add" image="zzz" catalog="system" width="63.5" id="Na7-gi-Yzd">
                             <connections>
                                 <action selector="disable_editing:" destination="yd1-OR-dwA" id="3FR-fk-e9j"/>
@@ -221,23 +221,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-aW-LwF">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="652"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdS-5X-jB8">
+                                <rect key="frame" x="0.0" y="55" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-aW-LwF">
+                                <rect key="frame" x="0.0" y="90" width="375" height="544"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdS-5X-jB8">
-                                <rect key="frame" x="0.0" y="56" width="86" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b8E-aW-LwF" firstAttribute="top" secondItem="OdS-5X-jB8" secondAttribute="bottom" constant="14" id="9Vk-ch-Bnz"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="b8E-aW-LwF" secondAttribute="bottom" constant="-16" id="U4X-dW-CwF"/>
+                            <constraint firstItem="OdS-5X-jB8" firstAttribute="top" secondItem="cGl-H9-oHq" secondAttribute="top" constant="11" id="X4D-Qi-N2y"/>
+                            <constraint firstItem="OdS-5X-jB8" firstAttribute="leading" secondItem="b8E-aW-LwF" secondAttribute="leading" id="gHv-qC-ltd"/>
+                            <constraint firstItem="OdS-5X-jB8" firstAttribute="leading" secondItem="cGl-H9-oHq" secondAttribute="leading" id="nqC-VY-nER"/>
+                            <constraint firstItem="b8E-aW-LwF" firstAttribute="centerX" secondItem="ZRV-l8-c91" secondAttribute="centerX" id="tmf-Vd-ouS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cGl-H9-oHq"/>
                     </view>
                     <toolbarItems/>

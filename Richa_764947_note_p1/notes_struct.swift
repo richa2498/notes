@@ -10,8 +10,7 @@ import Foundation
 
 struct Folder_notes{
     
-    var folder_name : String
+    var folder_name : String 
     var notes : [String]
-    
     static var add_notes = [Folder_notes]()
 }

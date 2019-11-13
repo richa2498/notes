@@ -127,10 +127,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
     }
     
-    
-    func folder_name() -> String {
-        return folder
-    }
+  
     
     //MARK : FOR REAARANGING THE FOLDERS
    
@@ -174,6 +171,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
          tabl_view.reloadData()
     }
+    //MARK: TO SEND THE INDEX OF THE SELECTED FOLDER:
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dest = segue.destination as? note_view_controller{
@@ -186,14 +184,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                     currIndex = indexpath.row}
                 
             }
-            
-            
+       
         }
-        
     }
- 
-    
-    
     
 }
 

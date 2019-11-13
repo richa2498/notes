@@ -20,32 +20,16 @@ class add_notes: UIViewController {
     
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
         add_text_area.text = item_name
 
-        // Do any additional setup after loading the view.
     }
-    
-   
-    
+ //MARK : ADD ITEMS TO ARRAY OF NOTES WITH DELEGATE
     override func viewDidDisappear(_ animated: Bool) {
-        
-       
+
         delegate1?.add_to_list(item: add_text_area.text,isExits: isExists)
         
     }
-    
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
